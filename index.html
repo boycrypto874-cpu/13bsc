@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13 on BSC | Zero Tax Memecoin</title>
+    <meta name="description" content="13 is a community memecoin on BSC. Zero tax, locked LP, renounced ownership. Join Telegram and buy today.">
+    <meta property="og:image" content="https://i.postimg.cc/tJVB2KTn/IMG-2253.jpg">
+    <meta property="og:title" content="13 on BSC">
+    <meta property="og:description" content="Zero tax meme coin on Binance Smart Chain">
+    <meta property="og:url" content="https://13bsc.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="https://i.postimg.cc/tJVB2KTn/IMG-2253.jpg" type="image/jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F3BA2F',
+                        dark: '#0E0F12',
+                        darker: '#181A20',
+                        light: '#EAECEF'
+                    },
+                    fontFamily: {
+                        headline: ['"Bebas Neue"', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        @keyframes wobble {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+        .wobble:hover {
+            animation: wobble 0.5s ease;
+        }
+        .confetti {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .sticky-mobile-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body class="bg-dark text-light font-body">
+    <!-- Confetti Effect -->
+    <div id="confetti" class="confetti hidden"></div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen overflow-hidden">
+        <div class="absolute inset-0 parallax" style="background-image: url('https://i.postimg.cc/mkFm8vD0/IMG-2238.jpg');"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="relative z-10 flex flex-col justify-center h-full px-6 md:px-16">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="flex-1 mb-12 md:mb-0">
+                    <img src="https://i.postimg.cc/Hn76Bqxz/IMG-2246.png" alt="13 Meme Character" class="w-full max-w-md mx-auto md:ml-0">
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-6xl md:text-8xl font-headline text-primary mb-4">13 ON BSC</h1>
+                    <p class="text-xl md:text-2xl mb-8">BSC meme energy, zero tax, community owned.</p>
+                    <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                        <button class="bg-primary hover:bg-darker hover:text-primary text-darker px-6 py-3 rounded-full font-bold transition-all">BUY 13</button>
+                        <button class="border-2 border-primary hover:bg-primary hover:text-darker text-primary px-6 py-3 rounded-full font-bold transition-all">VIEW CHART</button>
+                        <button class="border-2 border-primary hover:bg-primary hover:text-darker text-primary px-6 py-3 rounded-full font-bold transition-all">JOIN TELEGRAM</button>
+                        <button class="border-2 border-primary hover:bg-primary hover:text-darker text-primary px-6 py-3 rounded-full font-bold transition-all">FOLLOW ON X</button>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+                        <div class="flex items-center">
+                            <span class="mr-2">Ticker: 13</span>
+                            <button class="text-primary wobble"><i data-feather="copy"></i></button>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-2">Supply: <span id="supply-counter">0</span></span>
+                            <button class="text-primary wobble"><i data-feather="copy"></i></button>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-2">Tax: 0%</span>
+                            <button class="text-primary wobble"><i data-feather="copy"></i></button>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-2">Locked LP</span>
+                            <button class="text-primary wobble"><i data-feather="copy"></i></button>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-2">Ownership renounced</span>
+                            <button class="text-primary wobble"><i data-feather="copy"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="https://i.postimg.cc/D0bxB9ZR/IMG-2245.png" alt="13 Logo" class="absolute right-8 bottom-8 w-16 h-16 md:w-24 md:h-24 wobble cursor-pointer" id="trigger-confetti">
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-16 px-6 md:px-16 bg-darker">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-headline text-primary mb-12 text-center">WHY 13</h2>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="flex-1">
+                    <p class="text-2xl mb-6">4, 1, and 8 are part of the culture. We mixed the digits into one symbol.</p>
+                    <p class="text-2xl mb-6">13 looks like a B. You know the vibe.</p>
+                    <p class="text-2xl">100% community driven. Built for the culture.</p>
+                </div>
+                <div class="flex-1">
+                    <div class="relative h-96 overflow-hidden rounded-xl">
+                        <div class="absolute inset-0 flex transition-transform duration-300" id="story-carousel">
+                            <img src="https://i.postimg.cc/Bb1mMr6c/IMG-2247.png" alt="Meme character in plane" class="min-w-full h-full object-cover">
+                            <img src="https://i.postimg.cc/NFrdp3MN/IMG-2243.png" alt="Meme character in lambo" class="min-w-full h-full object-cover">
+                            <img src="https://i.postimg.cc/8crZt25Y/IMG-2244.png" alt="Truck with 13 logo" class="min-w-full h-full object-cover">
+                        </div>
+                        <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+                            <button class="w-3 h-3 rounded-full bg-primary" onclick="moveCarousel(0)"></button>
+                            <button class="w-3 h-3 rounded-full bg-light" onclick="moveCarousel(1)"></button>
+                            <button class="w-3 h-3 rounded-full bg-light" onclick="moveCarousel(2)"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="py-16 px-6 md:px-16 bg-dark">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-headline text-primary mb-12 text-center">TOKENOMICS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-darker p-6 rounded-xl shadow-lg">
+                    <div class="text-primary mb-4">
+                        <i data-feather="database" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Supply</h3>
+                    <p class="text-light">1,000,000,000</p>
+                </div>
+                <div class="bg-darker p-6 rounded-xl shadow-lg">
+                    <div class="text-primary mb-4">
+                        <i data-feather="percent" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Tax</h3>
+                    <p class="text-light">0% buy and sell</p>
+                </div>
+                <div class="bg-darker p-6 rounded-xl shadow-lg">
+                    <div class="text-primary mb-4">
+                        <i data-feather="lock" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Liquidity</h3>
+                    <p class="text-light">Locked forever</p>
+                </div>
+                <div class="bg-darker p-6 rounded-xl shadow-lg">
+                    <div class="text-primary mb-4">
+                        <i data-feather="shield" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ownership</h3>
+                    <p class="text-light">Renounced</p>
+                </div>
+            </div>
+            <div class="mt-12 flex justify-center gap-4">
+                <button class="bg-primary hover:bg-darker hover:text-primary text-darker px-6 py-3 rounded-full font-bold transition-all">VIEW LP LOCK</button>
+                <button class="border-2 border-primary hover:bg-primary hover:text-darker text-primary px-6 py-3 rounded-full font-bold transition-all">VIEW RENOUNCE</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Buy Section -->
+    <section class="py-16 px-6 md:px-16 bg-darker">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-headline text-primary mb-12 text-center">HOW TO BUY</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-dark p-6 rounded-xl shadow-lg">
+                    <div class="text-primary mb-4">
+                        <i data-feather="download" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Step 1</h3>
+                    <p class="text-light">Install a BSC wallet like MetaMask or Trust Wallet</p>
+                </div>
+                <div class="bg-dark p-6 rounded-xl shadow-lg">
+                    <div class="text-primary mb-4">
+                        <i data-feather="dollar-sign" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Step 2</h3>
+                    <p class="text-light">Fund your wallet with BNB from an exchange</p>
+                </div>
+                <div class="bg-dark p-6 rounded-xl shadow-lg">
+                    <div class="text-primary mb-4">
+                        <i data-feather="refresh-cw" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Step 3</h3>
+                    <p class="text-light">Swap for 13 on PancakeSwap or your DEX of choice</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="bg-primary hover:bg-darker hover:text-primary text-darker px-8 py-4 rounded-full font-bold text-xl transition-all">BUY 13 NOW</button>
+                <p class="text-sm mt-4 text-gray-400">*This is not financial advice. Always do your own research.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Widgets Section -->
+    <section class="py-16 px-6 md:px-16 bg-dark">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-headline text-primary mb-12 text-center">LIVE DATA</h2>
+            <div class="flex flex-col md:flex-row gap-6 mb-6">
+                <div class="bg-darker p-4 rounded-xl shadow-lg flex-1">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold">Live Chart</h3>
+                        <button class="text-primary hover:text-white">
+                            <i data-feather="refresh-cw" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div class="bg-black h-64 rounded-lg flex items-center justify-center">
+                        <p class="text-gray-500">Live chart will appear here</p>
+                    </div>
+                </div>
+                <div class="bg-darker p-4 rounded-xl shadow-lg flex-1">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold">Recent Trades</h3>
+                        <button class="text-primary hover:text-white">
+                            <i data-feather="refresh-cw" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div class="bg-black h-64 rounded-lg flex items-center justify-center">
+                        <p class="text-gray-500">Recent trades will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="py-16 px-6 md:px-16 bg-darker">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-headline text-primary mb-12 text-center">ROADMAP</h2>
+            <div class="relative">
+                <div class="overflow-x-auto pb-6">
+                    <div class="flex gap-6" style="min-width: 800px;">
+                        <div class="bg-dark p-6 rounded-xl shadow-lg flex-shrink-0 w-64">
+                            <div class="text-primary mb-4 text-2xl">PHASE 1</div>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 mt-1 mr-2 text-primary"></i>
+                                    <span>Website live</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 mt-1 mr-2 text-primary"></i>
+                                    <span>Socials active</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 mt-1 mr-2 text-primary"></i>
+                                    <span>First memes</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-dark p-6 rounded-xl shadow-lg flex-shrink-0 w-64">
+                            <div class="text-primary mb-4 text-2xl">PHASE 2</div>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 mt-1 mr-2 text-primary"></i>
+                                    <span>Community contests</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 mt-1 mr-2 text-primary"></i>
+                                    <span>KOL raids</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 mt-1 mr-2 text-primary"></i>
+                                    <span>Chart tools</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-dark p-6 rounded-xl shadow-lg flex-shrink-0 w-64">
+                            <div class="text-primary mb-4 text-2xl">PHASE 3</div>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 mt-1 mr-2 text-primary"></i>
+                                    <span>Meme generator</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 mt-1 mr-2 text-primary"></i>
+                                    <span>Sticker packs</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 mt-1 mr-2 text-primary"></i>
+                                    <span>13 counter widget</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-dark p-6 rounded-xl shadow-lg flex-shrink-0 w-64">
+                            <div class="text-primary mb-4 text-2xl">PHASE 4</div>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 mt-1 mr-2 text-primary"></i>
+                                    <span>More integrations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 mt-1 mr-2 text-primary"></i>
+                                    <span>Cross-promo</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="w-4 h-4 mt-1 mr-2 text-primary"></i>
+                                    <span>IRL meme drops</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-16 px-6 md:px-16 bg-dark">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-headline text-primary mb-12 text-center">MEME GALLERY</h2>
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-4">
+                <img src="https://i.postimg.cc/mkFm8vD0/IMG-2238.jpg" alt="13 Meme 1" class="w-full mb-4 rounded-lg hover:scale-105 transition-transform cursor-pointer">
+                <img src="https://i.postimg.cc/RhngXkFy/IMG-2240.jpg" alt="13 Meme 2" class="w-full mb-4 rounded-lg hover:scale-105 transition-transform cursor-pointer">
+                <img src="https://i.postimg.cc/Bb1mMr6V/IMG-2241.jpg" alt="13 Meme 3" class="w-full mb-4 rounded-lg hover:scale-105 transition-transform cursor-pointer">
+                <img src="https://i.postimg.cc/zvRx0sBt/IMG-2242.jpg" alt="13 Meme 4" class="w-full mb-4 rounded-lg hover:scale-105 transition-transform cursor-pointer">
+                <img src="https://i.postimg.cc/SRzgDBs8/IMG-2251.jpg" alt="13 Meme 5" class="w-full mb-4 rounded-lg hover:scale-105 transition-transform cursor-pointer">
+                <img src="https://i.postimg.cc/prnsqwTz/IMG-2252.jpg" alt="13 Meme 6" class="w-full mb-4 rounded-lg hover:scale-105 transition-transform cursor-pointer">
+                <img src="https://i.postimg.cc/sxZTwkX5/IMG-2250.jpg" alt="13 Character at pyramids" class="w-full mb-4 rounded-lg hover:scale-105 transition-transform cursor-pointer">
+                <img src="https://i.postimg.cc/tJVB2KTn/IMG-2253.jpg" alt="13 Logo" class="w-full mb-4 rounded-lg hover:scale-105 transition-transform cursor-pointer">
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="py-16 px-6 md:px-16 bg-darker">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-headline text-primary mb-12 text-center">JOIN THE COMMUNITY</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-dark p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="message-circle" class="w-6 h-6 mr-2 text-primary"></i>
+                        <h3 class="text-xl font-bold">Telegram</h3>
+                    </div>
+                    <p class="mb-4">Join our active community chat for the latest updates and memes.</p>
+                    <div class="mb-4 p-3 bg-black rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <span>Members online:</span>
+                            <span class="font-bold text-primary">1,337</span>
+                        </div>
+                    </div>
+                    <button class="w-full bg-primary hover:bg-darker hover:text-primary text-darker px-6 py-3 rounded-full font-bold transition-all">JOIN TELEGRAM</button>
+                </div>
+                <div class="bg-dark p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="twitter" class="w-6 h-6 mr-2 text-primary"></i>
+                        <h3 class="text-xl font-bold">Twitter (X)</h3>
+                    </div>
+                    <p class="mb-4">Follow us for announcements, meme contests, and community events.</p>
+                    <div class="mb-4 p-3 bg-black rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <span>Followers:</span>
+                            <span class="font-bold text-primary">4,200</span>
+                        </div>
+                    </div>
+                    <button class="w-full border-2 border-primary hover:bg-primary hover:text-darker text-primary px-6 py-3 rounded-full font-bold transition-all">FOLLOW ON X</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Vibe Section -->
+    <section class="py-16 px-6 md:px-16 bg-dark">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-headline text-primary mb-12 text-center">TEAM VIBE</h2>
+            <div class="flex flex-col md:flex-row justify-center gap-8">
+                <img src="https://i.postimg.cc/nrQ30yzG/IMG-2248.png" alt="13 Character arms crossed" class="w-full max-w-xs">
+                <img src="https://i.postimg.cc/T1WtCzwr/IMG-2249.png" alt="13 Character tall" class="w-full max-w-xs">
+            </div>
+            <p class="text-center text-xl mt-8 max-w-2xl mx-auto">Community first. Memes over promises. Zero rug pulls, 100% transparency.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-6 md:px-16 bg-darker">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-headline text-primary mb-12 text-center">FAQ</h2>
+            <div class="space-y-4">
+                <div class="bg-dark rounded-lg overflow-hidden">
+                    <button class="w-full p-4 text-left flex justify-between items-center" onclick="toggleFAQ(1)">
+                        <span class="font-bold">What is 13?</span>
+                        <i data-feather="chevron-down" class="w-5 h-5 transition-transform" id="faq-icon-1"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden" id="faq-content-1">
+                        <p>13 is a community memecoin on BSC with zero tax.</p>
+                    </div>
+                </div>
+                <div class="bg-dark rounded-lg overflow-hidden">
+                    <button class="w-full p-4 text-left flex justify-between items-center" onclick="toggleFAQ(2)">
+                        <span class="font-bold">Why zero tax?</span>
+                        <i data-feather="chevron-down" class="w-5 h-5 transition-transform" id="faq-icon-2"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden" id="faq-content-2">
+                        <p>Clean swaps, easy entries and exits.</p>
+                    </div>
+                </div>
+                <div class="bg-dark rounded-lg overflow-hidden">
+                    <button class="w-full p-4 text-left flex justify-between items-center" onclick="toggleFAQ(3)">
+                        <span class="font-bold">Contract address</span>
+                        <i data-feather="chevron-down" class="w-5 h-5 transition-transform" id="faq-icon-3"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden" id="faq-content-3">
+                        <div class="flex items-center">
+                            <code class="bg-black p-2 rounded mr-2">0x1234...5678</code>
+                            <button class="text-primary wobble"><i data-feather="copy"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-dark rounded-lg overflow-hidden">
+                    <button class="w-full p-4 text-left flex justify-between items-center" onclick="toggleFAQ(4)">
+                        <span class="font-bold">Is liquidity locked?</span>
+                        <i data-feather="chevron-down" class="w-5 h-5 transition-transform" id="faq-icon-4"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden" id="faq-content-4">
+                        <p>Yes. You can view the lock proof above in the Tokenomics section.</p>
+                    </div>
+                </div>
+                <div class="bg-dark rounded-lg overflow-hidden">
+                    <button class="w-full p-4 text-left flex justify-between items-center" onclick="toggleFAQ(5)">
+                        <span class="font-bold">Was ownership renounced?</span>
+                        <i data-feather="chevron-down" class="w-5 h-5 transition-transform" id="faq-icon-5"></i>
+                    </button>
+                    <div class="px-4 pb-4 hidden" id="faq-content-5">
+                        <p>Yes. You can view the renounce proof above in the Tokenomics section.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 md:px-16 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0">
+                    <img src="https://i.postimg.cc/D0bxB9ZR/IMG-2245.png" alt="13 Logo" class="w-16 h-16">
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="text-light hover:text-primary transition-colors">
+                        <i data-feather="twitter" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-light hover:text-primary transition-colors">
+                        <i data-feather="message-circle" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-light hover:text-primary transition-colors">
+                        <i data-feather="globe" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="bg-darker p-4 rounded-lg mb-8">
+                <div class="flex items-center justify-between">
+                    <code class="text-sm">CONTRACT: 0x1234567890abcdef1234567890abcdef12345678</code>
+                    <button class="text-primary wobble"><i data-feather="copy"></i></button>
+                </div>
+            </div>
+            <p class="text-center text-gray-500 text-sm">This is a meme project. No financial advice. Crypto involves risk. Do your own research.</p>
+        </div>
+    </footer>
+
+    <!-- Sticky Mobile Bottom Bar -->
+    <div class="sticky-mobile-bar md:hidden">
+        <div class="bg-darker p-4 flex justify-around items-center shadow-lg">
+            <button class="text-primary flex flex-col items-center">
+                <i data-feather="dollar-sign" class="w-5 h-5"></i>
+                <span class="text-xs mt-1">Buy</span>
+            </button>
+            <button class="text-light flex flex-col items-center">
+                <i data-feather="trending-up" class="w-5 h-5"></i>
+                <span class="text-xs mt-1">Chart</span>
+            </button>
+            <button class="text-light flex flex-col items-center">
+                <i data-feather="message-circle" class="w-5 h-5"></i>
+                <span class="text-xs mt-1">Telegram</span>
+            </button>
+            <button class="text-light flex flex-col items-center">
+                <i data-feather="twitter" class="w-5 h-5"></i>
+                <span class="text-xs mt-1">X</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-20 right-4 bg-primary text-darker p-3 rounded-full shadow-lg hidden">
+        <i data-feather="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Count up animation for supply
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        animateValue("supply-counter", 0, 1000000000, 2000);
+
+        // Story carousel
+        let currentSlide = 0;
+        const totalSlides = 3;
+        function moveCarousel(slideIndex) {
+            currentSlide = slideIndex;
+            const carousel = document.getElementById('story-carousel');
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            const indicators = document.querySelectorAll('#story-carousel + div button');
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('bg-primary');
+                    indicator.classList.remove('bg-light');
+                } else {
+                    indicator.classList.add('bg-light');
+                    indicator.classList.remove('bg-primary');
+                }
+            });
+        }
+
+        // Auto-rotate carousel
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            moveCarousel(currentSlide);
+        }, 5000);
+
+        // FAQ toggle
+        function toggleFAQ(index) {
+            const content = document.getElementById(`faq-content-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Confetti effect
+        const confettiTrigger = document.getElementById('trigger-confetti');
+        confettiTrigger.addEventListener('click', () => {
+            const confetti = document.getElementById('confetti');
+            confetti.classList.remove('hidden');
+            
+            // Create confetti elements
+            for (let i = 0; i < 100; i++) {
+                const confettiPiece = document.createElement('div');
+                confettiPiece.className = 'absolute w-2 h-2 bg-primary';
+                confettiPiece.style.left = Math.random() * 100 + 'vw';
+                confettiPiece.style.top = -10 + 'px';
+                confettiPiece.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                // Random shape
+                if (Math.random() > 0.5) {
+                    confettiPiece.style.borderRadius = '50%';
+                }
+                
+                // Random color
+                const colors = ['#F3BA2F', '#FFFFFF', '#181A20'];
+                confettiPiece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                confetti.appendChild(confettiPiece);
+                
+                // Animate
+                const animation = confettiPiece.animate([
+                    { top: '-10px', opacity: 1 },
+                    { top: '100vh', opacity: 0 }
+                ], {
+                    duration: 2000 + Math.random() * 3000,
+                    easing: 'cubic-bezier(0.1, 0.8, 0.1, 1)'
+                });
+                
+                animation.onfinish = () => {
+                    confettiPiece.remove();
+                };
+            }
+            
+            setTimeout(() => {
+                confetti.classList.add('hidden');
+                confetti.innerHTML = '';
+            }, 3000);
+        });
+
+        // Easter egg - type 13 to trigger confetti
+        let keySequence = [];
+        document.addEventListener('keydown', (e) => {
+            keySequence.push(e.key);
+            if (keySequence.length > 2) {
+                keySequence.shift();
+            }
+            
+            if (keySequence.join('') === '13') {
+                document.getElementById('trigger-confetti').click();
+                const buyButton = document.querySelector('button:contains("BUY 13")');
+                if (buyButton) {
+                    buyButton.classList.add('animate-pulse', 'ring-4', 'ring-primary');
+                    setTimeout(() => {
+                        buyButton.classList.remove('animate-pulse', 'ring-4', 'ring-primary');
+                    }, 2000);
+                }
+                keySequence = [];
+            }
+        });
+    </script>
+</body>
+</html>
